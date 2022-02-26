@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import theme from "../styles/theme";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -12,7 +13,9 @@ const GlobalStyle = createGlobalStyle`
 const App = ({ Component, pageProps }: AppProps) => (
   <>
     <GlobalStyle />
-    <Component {...pageProps} />
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
   </>
 );
 
